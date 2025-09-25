@@ -1,0 +1,48 @@
+{
+  "exhibitions": [
+    {
+      "slug": "inaugural-lines",
+      "title": "Inaugural Lines",
+      "description": "A group presentation introducing gallerytwentythree's inaugural artist cohort.",
+      "startDate": "2025-10-01",
+      "endDate": "2025-12-15",
+      "artist": "Various Artists",
+      "image": "/images/sample-exhibition-1.jpg",
+      "body": "<p>Inaugural Lines brings together five contemporary artists whose practices explore the boundaries between traditional and digital media.</p>"
+    },
+    {
+      "slug": "echo-forms",
+      "title": "Echo Forms",
+      "description": "Material studies in rhythm, edge, and reflection.",
+      "startDate": "2026-01-20",
+      "endDate": "2026-03-05",
+      "artist": "Mira Chen",
+      "image": "/images/sample-exhibition-2.jpg",
+      "body": "<p>Echo Forms presents new work by Mira Chen, exploring the intersection of sound and sculptural form.</p>"
+    },
+    {
+      "slug": "future-territories",
+      "title": "Future Territories",
+      "description": "Speculative visions of place and belonging in digital space.",
+      "startDate": "2026-03-15",
+      "endDate": "2026-05-10",
+      "artist": "Alex Rivera",
+      "image": "/images/sample-exhibition-3.jpg",
+      "body": "<p>Future Territories examines how digital technologies reshape our understanding of community and place.</p>"
+    }
+  ],
+  "artists": [
+    {
+      "slug": "mira-chen",
+      "name": "Mira Chen",
+      "bio": "Working across sculpture and sound, Mira Chen explores resonance and form through material studies.",
+      "website": "https://mirachen.art"
+    },
+    {
+      "slug": "alex-rivera",
+      "name": "Alex Rivera",
+      "bio": "Alex Rivera creates immersive digital environments that interrogate space, identity, and technology.",
+      "website": "https://alexrivera.net"
+    }
+  ]
+}
