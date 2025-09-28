@@ -2,53 +2,86 @@ import Image from 'next/image'
 import Link from 'next/link'
 import MotionFade from '@/components/MotionFade'
 import Card from '@/components/Card'
+import AmbiLight from '@/components/AmbiLight'
 import { getLatestExhibitions } from '@/lib/dal'
 
 export default async function HomePage() {
   const exhibitions = await getLatestExhibitions(3)
   
   return (
-    <div className="container py-12 space-y-20">
-      {/* Hero Section */}
-      <MotionFade>
-        <section className="grid lg:grid-cols-2 gap-12 items-center min-h-[60vh]">
-          <div className="space-y-6">
-            <h1 className="text-[clamp(2.5rem,5vw,5rem)] font-black leading-[0.9] tracking-tighter">
-              feel your<br/>art beat<span className="text-[var(--accent)]">.</span>
-            </h1>
-            <p className="text-xl text-[var(--muted)] max-w-xl">
-              gallerytwentythree is an artist-first exhibition space presenting 
-              contemporary work across all media. Online always, in-person by appointment.
-            </p>
-            <div className="flex gap-4 pt-4">
-              <Link 
-                href="/exhibitions" 
-                className="px-6 py-3 bg-[var(--foreground)] text-[var(--background)] rounded-lg font-semibold hover:opacity-90 transition"
-              >
-                View Exhibitions
-              </Link>
-              <Link 
-                href="/visit" 
-                className="px-6 py-3 border border-current rounded-lg font-semibold hover:bg-[var(--accent)] hover:text-black transition"
-              >
-                Visit Us
-              </Link>
+    <>
+      {/* Immersive Hero Section with AmbiLight */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* AmbiLight Background Video */}
+        <AmbiLight
+          videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+          sourceType="url"
+          autoplay={true}
+          muted={true}
+          loop={true}
+          controls={false}
+          blur={30}
+          spread={40}
+          intensity={0.7}
+          radius={0}
+          shadow={0.4}
+          saturation={1.3}
+          brightness={1.2}
+          className="hero-ambi"
+          onVideoLoad={() => console.log('Hero video loaded')}
+          onVideoError={(error) => console.error('Hero video error:', error)}
+        />
+
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40 z-10" />
+
+        {/* Hero Content */}
+        <div className="relative z-20 container text-center text-white">
+          <MotionFade>
+            <div className="max-w-4xl mx-auto space-y-8">
+              <h1 className="text-[clamp(3rem,8vw,7rem)] font-light leading-[0.9] tracking-tight">
+                feel your<br/>
+                <span className="font-normal">art beat</span>
+                <span className="text-[var(--accent)]">.</span>
+              </h1>
+
+              <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+                gallerytwentythree is an artist-first exhibition space presenting
+                contemporary work across all media. Online always, in-person by appointment.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-6 pt-8 justify-center">
+                <Link
+                  href="/exhibitions"
+                  className="px-8 py-4 bg-[var(--accent)] text-[var(--background)] rounded-lg font-semibold hover:bg-[var(--accent)]/90 transition-all duration-300 hover:scale-105"
+                >
+                  View Exhibitions
+                </Link>
+                <Link
+                  href="/visit"
+                  className="px-8 py-4 border border-white/30 text-white rounded-lg font-semibold hover:bg-white/10 backdrop-blur-sm transition-all duration-300 hover:scale-105"
+                >
+                  Visit Us
+                </Link>
+              </div>
+            </div>
+          </MotionFade>
+        </div>
+
+        {/* Scroll Indicator */}
+        <MotionFade delay={1}>
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+            <div className="flex flex-col items-center space-y-2 text-white/70">
+              <span className="text-sm font-medium">Scroll to explore</span>
+              <svg className="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
             </div>
           </div>
-          <div className="relative aspect-square">
-            <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)] to-transparent opacity-20 rounded-3xl" />
-            <Image
-              src="/images/hero-gradient.svg"
-              alt="Abstract gradient artwork"
-              width={800}
-              height={800}
-              priority
-              className="w-full h-full object-cover rounded-3xl"
-            />
-            <div className="img-alt" data-alt="Abstract gradient artwork in aqua and black" />
-          </div>
-        </section>
-      </MotionFade>
+        </MotionFade>
+      </section>
+
+      <div className="container py-20 space-y-20">
       
       {/* Latest Exhibitions */}
       {exhibitions.length > 0 && (
@@ -109,6 +142,7 @@ export default async function HomePage() {
           </Link>
         </section>
       </MotionFade>
-    </div>
+      </div>
+    </>
   )
 }

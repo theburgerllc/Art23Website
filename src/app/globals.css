@@ -176,3 +176,134 @@ html {
 .grid-auto-fill {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
+
+/* ScrollAppearMedia component styles */
+.scroll-appear-media {
+  --scroll-media-bg: var(--card);
+  --scroll-media-opacity: 0.8;
+}
+
+.scroll-appear-media img,
+.scroll-appear-media video {
+  border-radius: inherit;
+}
+
+.scroll-appear-media.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.scroll-appear-media.hero-media img,
+.scroll-appear-media.hero-media video {
+  object-position: center;
+  border-radius: 0;
+}
+
+/* Scroll media variants */
+.scroll-appear-media.rounded {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.scroll-appear-media.rounded-xl {
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.scroll-appear-media.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.scroll-appear-media.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.scroll-appear-media.aspect-portrait {
+  aspect-ratio: 3 / 4;
+}
+
+/* AmbiLight component styles */
+.ambi-light {
+  --ambi-glow-color: rgba(var(--accent-rgb, 154, 255, 249), 0.3);
+  position: relative;
+  display: block;
+}
+
+.ambi-light video {
+  border-radius: inherit;
+}
+
+.ambi-light.hero-ambi {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.ambi-light.hero-ambi video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* AmbiLight variants */
+.ambi-light.rounded {
+  border-radius: 1rem;
+}
+
+.ambi-light.rounded-xl {
+  border-radius: 1.5rem;
+}
+
+.ambi-light.rounded-2xl {
+  border-radius: 2rem;
+}
+
+.ambi-light.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.ambi-light.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.ambi-light.aspect-portrait {
+  aspect-ratio: 3 / 4;
+}
+
+.ambi-light.aspect-cinema {
+  aspect-ratio: 21 / 9;
+}
+
+/* Enhanced glow effects */
+.ambi-light.intense-glow video:first-child {
+  filter: blur(25px) saturate(1.5) brightness(1.3);
+  opacity: 0.8;
+}
+
+.ambi-light.subtle-glow video:first-child {
+  filter: blur(15px) saturate(1.1) brightness(1.05);
+  opacity: 0.4;
+}
+
+/* Performance optimizations */
+.ambi-light video {
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Responsive ambi light */
+@media (max-width: 768px) {
+  .ambi-light.hero-ambi {
+    height: 70vh;
+  }
+
+  .ambi-light video:first-child {
+    filter: blur(15px) saturate(1.2) brightness(1.1);
+  }
+}
