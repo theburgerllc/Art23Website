@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import MotionFade from '@/components/MotionFade'
 
 interface BlogPost {
@@ -28,6 +29,7 @@ const blogPosts: BlogPost[] = [
     date: '2024-03-15',
     readTime: '5 min read',
     category: 'Digital Art',
+    image: '/images/blog/contemporary-art-feature.jpg',
     slug: 'contemporary-art-digital-age'
   },
   {
@@ -39,6 +41,7 @@ const blogPosts: BlogPost[] = [
     date: '2024-03-10',
     readTime: '3 min read',
     category: 'Exhibitions',
+    image: '/images/gallery/installation-view.jpg',
     slug: 'gallery-opening-new-perspectives'
   },
   {
@@ -50,6 +53,7 @@ const blogPosts: BlogPost[] = [
     date: '2024-03-05',
     readTime: '8 min read',
     category: 'Collecting',
+    image: '/images/products/abstract-composition-1.jpg',
     slug: 'art-collecting-beginners-guide'
   },
   {
@@ -61,6 +65,7 @@ const blogPosts: BlogPost[] = [
     date: '2024-02-28',
     readTime: '6 min read',
     category: 'Artist Spotlight',
+    image: '/images/artists/marina-volkov-portrait.jpg',
     slug: 'artist-spotlight-emerging-talents'
   }
 ]
@@ -138,8 +143,19 @@ export default function BlogPage() {
               >
                 <Link href={`/blog/${post.slug}`} className="block">
                   <div className="bg-[var(--card)] rounded-2xl overflow-hidden border border-[var(--border)]/20 transition-all duration-300 hover:shadow-xl hover:shadow-[var(--accent)]/5 hover:border-[var(--accent)]/30">
-                    {/* Image placeholder - replace with actual images */}
-                    <div className="aspect-[16/10] bg-gradient-to-br from-[var(--accent)]/20 to-[var(--muted)]/20 relative overflow-hidden">
+                    {/* Featured Image */}
+                    <div className="aspect-[16/10] relative overflow-hidden">
+                      {post.image ? (
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-[var(--accent)]/20 to-[var(--muted)]/20" />
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <div className="absolute top-4 left-4">
                         <span className="inline-block px-3 py-1 bg-[var(--background)]/90 backdrop-blur-sm text-xs font-medium text-[var(--foreground)] rounded-full">
