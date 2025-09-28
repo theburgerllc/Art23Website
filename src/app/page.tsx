@@ -27,8 +27,6 @@ export default async function HomePage() {
           saturation={1.3}
           brightness={1.2}
           className="hero-ambi"
-          onVideoLoad={() => console.log('Hero video loaded')}
-          onVideoError={(error) => console.error('Hero video error:', error)}
         />
 
         {/* Overlay for better text readability */}
