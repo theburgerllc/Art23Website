@@ -6,8 +6,7 @@ import Image from 'next/image'
 import {
   ScrollMediaProps,
   ScrollState,
-  DEFAULT_SCROLL_CONFIG,
-  ScrollMediaVariant
+  DEFAULT_SCROLL_CONFIG
 } from '@/lib/types/scroll-media'
 
 /**
