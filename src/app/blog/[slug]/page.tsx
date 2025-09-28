@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import MotionFade from '@/components/MotionFade'
 
@@ -43,6 +44,7 @@ const blogPosts: BlogPost[] = [
     date: '2024-03-15',
     readTime: '5 min read',
     category: 'Digital Art',
+    image: '/images/blog/contemporary-art-feature.jpg',
     slug: 'contemporary-art-digital-age'
   },
   {
@@ -65,6 +67,7 @@ const blogPosts: BlogPost[] = [
     date: '2024-03-10',
     readTime: '3 min read',
     category: 'Exhibitions',
+    image: '/images/gallery/installation-view.jpg',
     slug: 'gallery-opening-new-perspectives'
   }
 ]
@@ -153,16 +156,27 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               <span>{post.readTime}</span>
             </motion.div>
 
-            {/* Featured Image Placeholder */}
+            {/* Featured Image */}
             <motion.div
-              className="aspect-[16/9] bg-gradient-to-br from-[var(--accent)]/20 to-[var(--muted)]/20 rounded-2xl mb-12 overflow-hidden"
+              className="aspect-[16/9] rounded-2xl mb-12 overflow-hidden relative"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <div className="w-full h-full flex items-center justify-center">
-                <span className="text-[var(--muted)] text-lg">Featured Image</span>
-              </div>
+              {post.image ? (
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 1024px"
+                  priority
+                />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-[var(--accent)]/20 to-[var(--muted)]/20 flex items-center justify-center">
+                  <span className="text-[var(--muted)] text-lg">Featured Image</span>
+                </div>
+              )}
             </motion.div>
 
             {/* Article Content */}
