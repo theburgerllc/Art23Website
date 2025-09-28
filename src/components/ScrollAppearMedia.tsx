@@ -120,13 +120,12 @@ export default function ScrollAppearMedia({
       lastUpdateRef.current = now
 
       // Update scroll state
-      updateScrollState(prev => ({
-        ...prev,
+      updateScrollState({
         isScrolling: true,
         currentScroll,
-        maxScroll: Math.max(prev.maxScroll, currentScroll),
+        maxScroll: Math.max(scrollState.maxScroll, currentScroll),
         lastScrollTime: now
-      }))
+      })
 
       // Clear existing timeout
       if (scrollTimeoutRef.current) {
@@ -135,11 +134,10 @@ export default function ScrollAppearMedia({
 
       // Set timeout to detect when scrolling stops
       scrollTimeoutRef.current = setTimeout(() => {
-        updateScrollState(prev => ({
-          ...prev,
+        updateScrollState({
           isScrolling: false,
           lastScrollTime: performance.now()
-        }))
+        })
       }, config.scrollStopDelay)
     }
 
@@ -187,7 +185,7 @@ export default function ScrollAppearMedia({
 
       const currentOpacity = startOpacity + (target - startOpacity) * easeProgress
 
-      updateScrollState(prev => ({ ...prev, opacity: currentOpacity }))
+      updateScrollState({ opacity: currentOpacity })
 
       if (progress < 1) {
         animationFrameRef.current = requestAnimationFrame(animate)
