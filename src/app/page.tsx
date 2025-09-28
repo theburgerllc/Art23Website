@@ -13,8 +13,8 @@ export default async function HomePage() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* AmbiLight Background Video */}
         <AmbiLight
-          videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-          sourceType="url"
+          videoSrc="/videos/gallery-hero.mp4"
+          sourceType="file"
           autoplay={true}
           muted={true}
           loop={true}

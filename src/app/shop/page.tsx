@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import MotionFade from '@/components/MotionFade'
 
 interface Product {
@@ -234,8 +235,14 @@ export default function ShopPage() {
                         </div>
                       )}
 
-                      {/* Placeholder for product image */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/20 to-[var(--muted)]/20 group-hover:scale-105 transition-transform duration-500" />
+                      {/* Product Image */}
+                      <Image
+                        src={product.image}
+                        alt={product.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
 
                       {/* Add to Cart Quick Action */}
                       {product.available && (
