@@ -20,7 +20,7 @@ interface Product {
   shopifyId?: string
 }
 
-// Sample products - replace with actual Shopify data
+// Gallery products with actual images
 const products: Product[] = [
   {
     id: '1',
@@ -30,62 +30,62 @@ const products: Product[] = [
     originalPrice: 1500,
     description: 'Mixed media on canvas, exploring themes of urban decay and renewal.',
     category: 'Paintings',
-    image: '/api/placeholder/400/500',
+    image: '/images/products/abstract-composition-1.jpg',
     available: true,
     featured: true
   },
   {
     id: '2',
-    title: 'Digital Dreams',
+    title: 'Digital Consciousness #3',
     artist: 'Alex Chen',
     price: 800,
     description: 'Limited edition digital print exploring the intersection of technology and humanity.',
     category: 'Digital Art',
-    image: '/api/placeholder/400/500',
+    image: '/images/products/digital-consciousness-3.jpg',
     available: true,
     featured: false
   },
   {
     id: '3',
-    title: 'Ceramic Vessel Series',
+    title: 'Vessel: Ancient Memory',
     artist: 'Rosa Martinez',
     price: 350,
     description: 'Handcrafted ceramic piece inspired by ancient pottery traditions.',
     category: 'Sculpture',
-    image: '/api/placeholder/400/500',
+    image: '/images/products/vessel-ancient-memory.jpg',
     available: true,
     featured: true
   },
   {
     id: '4',
-    title: 'Urban Landscapes',
+    title: 'Metropolitan Fragments',
     artist: 'David Kim',
     price: 950,
     description: 'Photography series capturing the essence of modern city life.',
     category: 'Photography',
-    image: '/api/placeholder/400/500',
+    image: '/images/products/metropolitan-fragments.jpg',
     available: false,
     featured: false
   },
   {
     id: '5',
-    title: 'Flowing Forms',
+    title: 'Organic Flow II',
     artist: 'Elena Rossi',
     price: 2200,
     description: 'Bronze sculpture celebrating organic movement and natural forms.',
     category: 'Sculpture',
-    image: '/api/placeholder/400/500',
+    image: '/images/products/organic-flow-2.jpg',
     available: true,
     featured: true
   },
   {
     id: '6',
-    title: 'Color Studies',
+    title: 'Chromatic Dialogue',
     artist: 'James Wilson',
     price: 650,
     description: 'Oil on canvas exploring the emotional impact of color relationships.',
     category: 'Paintings',
-    image: '/api/placeholder/400/500',
+    image: '/images/products/chromatic-dialogue.jpg',
     available: true,
     featured: false
   }
@@ -235,8 +235,14 @@ export default function ShopPage() {
                         </div>
                       )}
 
-                      {/* Placeholder for product image */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/20 to-[var(--muted)]/20 group-hover:scale-105 transition-transform duration-500" />
+                      {/* Product Image */}
+                      <Image
+                        src={product.image}
+                        alt={product.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
 
                       {/* Add to Cart Quick Action */}
                       {product.available && (

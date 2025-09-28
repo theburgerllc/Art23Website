@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import MotionFade from '@/components/MotionFade'
 import Card from '@/components/Card'
@@ -13,8 +14,8 @@ export default async function HomePage() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* AmbiLight Background Video */}
         <AmbiLight
-          videoSrc="/videos/gallery-hero.mp4"
-          sourceType="file"
+          videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+          sourceType="url"
           autoplay={true}
           muted={true}
           loop={true}
@@ -27,6 +28,8 @@ export default async function HomePage() {
           saturation={1.3}
           brightness={1.2}
           className="hero-ambi"
+          onVideoLoad={() => console.log('Hero video loaded')}
+          onVideoError={(error) => console.error('Hero video error:', error)}
         />
 
         {/* Overlay for better text readability */}
