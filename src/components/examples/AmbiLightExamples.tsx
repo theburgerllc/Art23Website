@@ -47,6 +47,7 @@ export function YouTubeAmbiLightExample() {
       </h2>
 
       <AmbiLight
+        videoSrc="" // Not used for YouTube but required by component
         youtubeId="dQw4w9WgXcQ" // Replace with actual exhibition video
         sourceType="youtube"
         autoplay={false}
