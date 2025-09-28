@@ -1,9 +1,20 @@
 import type { Metadata, Viewport } from 'next'
 import { ThemeProvider } from 'next-themes'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ErrorBoundary from '@/components/ErrorBoundary'
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+// Note: Onest font would need to be added via a font service or local files
+// For now, using Inter as the primary font which covers both sans and display use cases
 
 export const metadata: Metadata = {
   title: {
@@ -37,7 +48,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' }
+    { media: '(prefers-color-scheme: dark)', color: '#01010f' }
   ],
   width: 'device-width',
   initialScale: 1,
@@ -51,7 +62,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen flex flex-col">
+      <body className={`min-h-screen flex flex-col ${inter.variable}`}>
         <ThemeProvider
           attribute="data-theme"
           defaultTheme="system"
