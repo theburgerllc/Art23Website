@@ -7,7 +7,7 @@
       "startDate": "2025-10-01",
       "endDate": "2025-12-15",
       "artist": "Various Artists",
-      "image": "/images/sample-exhibition-1.jpg",
+      "image": "/images/gallery/installation-view.jpg",
       "body": "<p>Inaugural Lines brings together five contemporary artists whose practices explore the boundaries between traditional and digital media.</p>"
     },
     {
@@ -17,7 +17,7 @@
       "startDate": "2026-01-20",
       "endDate": "2026-03-05",
       "artist": "Mira Chen",
-      "image": "/images/sample-exhibition-2.jpg",
+      "image": "/images/products/abstract-composition-1.jpg",
       "body": "<p>Echo Forms presents new work by Mira Chen, exploring the intersection of sound and sculptural form.</p>"
     },
     {
@@ -27,7 +27,7 @@
       "startDate": "2026-03-15",
       "endDate": "2026-05-10",
       "artist": "Alex Rivera",
-      "image": "/images/sample-exhibition-3.jpg",
+      "image": "/images/products/chromatic-dialogue.jpg",
       "body": "<p>Future Territories examines how digital technologies reshape our understanding of community and place.</p>"
     }
   ],

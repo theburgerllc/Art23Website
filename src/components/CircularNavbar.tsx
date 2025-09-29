@@ -56,7 +56,7 @@ export default function CircularNavbar({ className = '' }: CircularNavbarProps) 
     <>
       {/* Fixed Circular Navigation Button */}
       <motion.div
-        className={`fixed top-6 right-6 z-[9999] ${className}`}
+        className={`fixed top-6 right-6 z-50 ${className}`}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.3 }}
@@ -130,7 +130,7 @@ export default function CircularNavbar({ className = '' }: CircularNavbarProps) 
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[9998]"
+            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
             onClick={closeNavigation}
           />
         )}
@@ -139,7 +139,7 @@ export default function CircularNavbar({ className = '' }: CircularNavbarProps) 
       {/* Circular Navigation Items */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed top-6 right-6 z-[9999] pointer-events-none">
+          <div className="fixed top-6 right-6 z-50 pointer-events-none">
             {navItems.map((item, index) => {
               const angle = (index * 72) - 90 // 72 degrees between items, starting from top
               const radius = 120
@@ -255,7 +255,7 @@ export default function CircularNavbar({ className = '' }: CircularNavbarProps) 
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
             transition={{ duration: 0.3, delay: 0.2 }}
-            className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[9999] pointer-events-none"
+            className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none"
           >
             <div className="
               w-32 h-32 rounded-full flex items-center justify-center
