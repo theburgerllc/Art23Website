@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from 'next'
 import { ThemeProvider } from 'next-themes'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/Header'
+import EnhancedHeader from '@/components/EnhancedHeader'
+import CircularNavbar from '@/components/CircularNavbar'
 import Footer from '@/components/Footer'
 import ErrorBoundary from '@/components/ErrorBoundary'
 
@@ -70,7 +71,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ErrorBoundary>
-            <Header />
+            <EnhancedHeader variant="rounded" showCircularLogo={true} />
+            <CircularNavbar />
             <main className="flex-1">
               {children}
             </main>
