@@ -3,7 +3,6 @@ import { ThemeProvider } from 'next-themes'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import EnhancedHeader from '@/components/EnhancedHeader'
-import CircularNavbar from '@/components/CircularNavbar'
 import Footer from '@/components/Footer'
 import ErrorBoundary from '@/components/ErrorBoundary'
 
@@ -72,7 +71,6 @@ export default function RootLayout({
         >
           <ErrorBoundary>
             <EnhancedHeader variant="rounded" showCircularLogo={true} />
-            <CircularNavbar />
             <main className="flex-1">
               {children}
             </main>
